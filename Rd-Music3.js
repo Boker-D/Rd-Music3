@@ -45,49 +45,25 @@ message.react("📩")
 
 }
 });
-client.on('message', message => {
-    var prefix = "3";
-    
-      if (!message.content.startsWith(prefix)) return;
-      var args = message.content.split(' ').slice(1);
-      var argresult = args.join(' ');
-      if (message.author.id == 331975722283302912) return;
-    
-    
-    if (message.content.startsWith(prefix + 'playing')) {
-    if (message.author.id !== '331975722283302912') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-    client.user.setGame(argresult);
-        message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
-    } else
-    
-     
-    if (message.content.startsWith(prefix + 'streem')) {
-    if (message.author.id !== '331975722283302912') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-    client.user.setGame(argresult, "http://twitch.tv/HP");
-        message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
-    } else
-    
-    if (message.content.startsWith(prefix + 'setname')) {
-    if (message.author.id !== '331975722283302912') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-      client.user.setUsername(argresult).then
-          message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
-      return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
-    } else
-        
-    if (message.content.startsWith(prefix + 'setavatar')) {
-    if (message.author.id !== '368456032399392768') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-    client.user.setAvatar(argresult);
-        message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-    } else
-    
-    
-    if (message.content.startsWith(prefix + 'watching')) {
-    if (message.author.id !== '234454368072630283') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-        client.user.setActivity(argresult, {type : 'watching'});
-     message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
-    }
-    
-     });
+const developers = ["331975722283302912"]
+const adminprefix = "3";
+bot.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'ply')) {
+    bot.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  bot.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setavatar')) {
+  bot.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
