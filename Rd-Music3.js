@@ -47,20 +47,20 @@ message.react("📩")
 });
 const developers = ["331975722283302912"]
 const adminprefix = "3";
-bot.on('message', message => {
+client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
       
   if (message.content.startsWith(adminprefix + 'ply')) {
-    bot.user.setGame(argresult);
+    client.user.setGame(argresult);
       message.channel.send(`**✅   ${argresult}**`)
   } else 
   if (message.content.startsWith(adminprefix + 'setname')) {
-  bot.user.setUsername(argresult).then
+  client.user.setUsername(argresult).then
       message.channel.send(`Changing The Name To ..**${argresult}** `)
 } else
 if (message.content.startsWith(adminprefix + 'setavatar')) {
-  bot.user.setAvatar(argresult);
+  client.user.setAvatar(argresult);
     message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
 });
