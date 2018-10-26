@@ -7,20 +7,20 @@ client.on('ready', () => {
   console.log('---------------')
 });
 client.on("message", message => {
- if (message.content === "^help") {
+ if (message.content === "3help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
         ***__🎼اوامر الموسيقى__***
 **
-『^play / لتشغيل اغنية』
-『^stop / لأيقاف الاغنية بشكل كامل』
-『^pause / لأيقاف الاغنية مؤقتا』
-『^unpause / لأكمال الاغنية』
-『^join / لأدخال البوت على الروم الصوتي』
-『^skip / لتخطي الاغنية』
-『^volume / لتغير مستوى الصوت』
+『3play / لتشغيل اغنية』
+『3stop / لأيقاف الاغنية بشكل كامل』
+『3pause / لأيقاف الاغنية مؤقتا』
+『3unpause / لأكمال الاغنية』
+『3join / لأدخال البوت على الروم الصوتي』
+『3skip / لتخطي الاغنية』
+『3volume / لتغير مستوى الصوت』
 **
 `)
 
@@ -38,7 +38,7 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
-if (message.content === "^help") {
+if (message.content === "3help") {
 message.reply("**Done | تــم**")
 message.reply("**تم ارسال اوامر البوت في الخاص**")
 message.react("📩")
@@ -46,7 +46,7 @@ message.react("📩")
 }
 });
 client.on('message', message => {
-    var prefix = "^";
+    var prefix = "3";
     
       if (!message.content.startsWith(prefix)) return;
       var args = message.content.split(' ').slice(1);
@@ -101,7 +101,7 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '^';
+const prefix = '3';
 const discord_token = process.env.BOT_TOKEN;
 client.login(discord_token);
 client.on('ready', function() {
@@ -331,7 +331,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : Boker ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` Prefix ^help رمضان كريم`,"http://twitch.tv/RD")
+client.user.setGame(`3help | TB Music-3`,"http://twitch.tv/TB")
 client.user.setStatus("dnd")
 });
 client.on("guildCreate", guild => {
